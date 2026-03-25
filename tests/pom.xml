@@ -5,7 +5,13 @@
   <artifactId>selenium-test</artifactId>
   <version>1.0</version>
 
+  <!-- ✅ FIX: Set Java Version -->
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+
   <dependencies>
+
     <!-- Selenium -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -27,14 +33,27 @@
       <version>7.8.0</version>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <build>
     <plugins>
+
+      <!-- ✅ FIX: Compiler Plugin -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0</version>
       </plugin>
+
     </plugins>
   </build>
+
 </project>
