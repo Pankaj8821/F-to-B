@@ -8,23 +8,42 @@ import org.testng.annotations.Test;
 public class AppTest {
 
     @Test
-    public void testFrontendLoads() {
+    public void testFrontendLoads() throws InterruptedException {
+
+        System.out.println("🚀 Starting Selenium Test...");
 
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-	options.addArguments("--headless"); 
+
+        // ❌ REMOVE headless (so browser is visible)
+        // options.addArguments("--headless");
+
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
         WebDriver driver = new ChromeDriver(options);
 
+        System.out.println("🌐 Opening frontend URL...");
+
         driver.get("http://localhost:3000");
+
+        Thread.sleep(5000); // 👈 Wait so you can SEE browser
+
+        System.out.println("📄 Page Loaded Successfully");
 
         String pageSource = driver.getPageSource();
 
+        System.out.println("🔍 Verifying content...");
+
         Assert.assertTrue(pageSource.contains("Frontend"));
 
+        System.out.println("✅ Test Passed!");
+
+        Thread.sleep(3000); // 👈 keep browser open for observation
+
         driver.quit();
+
+        System.out.println("🛑 Browser closed");
     }
 }
