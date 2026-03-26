@@ -28,7 +28,6 @@ public class AppTest {
 	options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
 
-
         System.out.println("🌐 Opening frontend URL...");
 
         driver.get("http://localhost:3000");
