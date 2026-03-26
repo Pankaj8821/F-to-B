@@ -21,7 +21,11 @@ public class AppTest {
 
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-
+	options.addArguments("--disable-gpu");   // 🔥 fix GPU issue
+	options.addArguments("--disable-software-rasterizer");
+	options.addArguments("--disable-extensions");
+	options.addArguments("--disable-dev-tools");
+	options.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(options);
 
         System.out.println("🌐 Opening frontend URL...");
